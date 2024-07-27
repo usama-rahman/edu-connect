@@ -21,6 +21,7 @@ const navLinks = [
     href: "/docs",
   },
 ];
+
 const MainLayout = ({ children }) => {
   return (
     <div className="flex min-h-screen flex-col">
