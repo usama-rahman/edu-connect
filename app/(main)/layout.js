@@ -1,8 +1,6 @@
 import { MainNav } from "@/components/main-nav";
 import { SiteFooter } from "@/components/site-footer";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
+
 const navLinks = [
   {
     title: "Features",
@@ -21,6 +19,7 @@ const navLinks = [
     href: "/docs",
   },
 ];
+
 const MainLayout = ({ children }) => {
   return (
     <div className="flex min-h-screen flex-col">
@@ -34,4 +33,5 @@ const MainLayout = ({ children }) => {
     </div>
   );
 };
+
 export default MainLayout;

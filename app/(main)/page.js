@@ -61,7 +61,9 @@ const HomePage = async () => {
           </div>
         </div>
       </section>
+
       {/* Categories Section */}
+
       <section
         id="categories"
         className="container space-y-6  py-8  md:py-12 lg:py-24"
@@ -119,4 +121,5 @@ const HomePage = async () => {
     </>
   );
 };
+
 export default HomePage;
