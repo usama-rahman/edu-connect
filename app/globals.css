@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* mongodb+srv://rahmanusama390:pbZQOQoHfASKmBq5@khanakhazana.eb1cufo.mongodb.net/edu-connect */
+
 @layer base {
   :root {
     --background: 0 0% 100%;
