@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
+import Link from "next/link";
 
 export function SiteFooter({ className }) {
   return (
@@ -8,41 +9,41 @@ export function SiteFooter({ className }) {
         <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
           <Logo />
           <p className="text-center text-sm leading-loose md:text-left">
-            Built by{" "}
-            <a
+            Built by
+            <Link
               href="#"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
             >
               shadcn
-            </a>
-            . Hosted on{" "}
-            <a
+            </Link>
+            . Hosted on
+            <Link
               href="https://vercel.com"
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
             >
               Vercel
-            </a>
-            . Illustrations by{" "}
-            <a
+            </Link>
+            . Illustrations by
+            <Link
               href="https://popsy.co"
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
             >
               Popsy
-            </a>
-            . The source code is available on{" "}
-            <a
+            </Link>
+            . The source code is available on
+            <Link
               href="#"
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
             >
               GitHub
-            </a>
+            </Link>
             .
           </p>
         </div>
