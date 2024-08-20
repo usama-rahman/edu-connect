@@ -116,11 +116,16 @@ export const AddQuizForm = ({ quizSetId }) => {
     try {
       console.log({ values });
 
-      const correctness = [values.optionA.isTrue, values.optionB.isTrue, values.optionC.isTrue, values.optionD.isTrue];
+      const correctness = [
+        values.optionA.isTrue,
+        values.optionB.isTrue,
+        values.optionC.isTrue,
+        values.optionD.isTrue,
+      ];
 
-      const correctMarked = correctness.filter(c => c);
+      const correctMarked = correctness.filter((c) => c);
 
-      const isOneCorrecrMarked = (correctMarked.length === 1);
+      const isOneCorrecrMarked = correctMarked.length === 1;
 
       if (isOneCorrecrMarked) {
         // Call server action
@@ -149,9 +154,8 @@ export const AddQuizForm = ({ quizSetId }) => {
 
         //toggleEdit();
         router.refresh();
-
       } else {
-        toast.error("You must mark only one correct answer.")
+        toast.error("You must mark only one correct answer.");
       }
     } catch (error) {
       toast.error("Something went wrong");

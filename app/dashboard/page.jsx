@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatPrice } from "@/lib/formatPrice";
 import { getCourseDetailsByInstructor } from "@/queries/courses";
-
 import { getUserByEmail } from "@/queries/users";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
@@ -15,8 +14,6 @@ const DashboardPage = async () => {
   if (instructor?.role !== "instructor") redirect("/login");
 
   const courseStats = await getCourseDetailsByInstructor(instructor?.id);
-
-  console.log({ courseStats });
 
   return (
     <div className="p-6">
@@ -53,7 +50,6 @@ const DashboardPage = async () => {
           </CardContent>
         </Card>
       </div>
-      {/*  */}
     </div>
   );
 };

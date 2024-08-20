@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/lib/formatPrice";
 import {
   ArrowRight,
-  ArrowRightIcon,
   BookOpen,
   MessageSquare,
   Presentation,
@@ -13,6 +12,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
 const courses = [
   {
     id: 1,
@@ -31,6 +31,7 @@ const courses = [
     thumbnail: "/assets/images/categories/marketing.jpg",
   },
 ];
+
 const InstructorProfile = () => {
   return (
     <section id="categories" className="space-y-6  py-6  lg:py-12">
@@ -40,7 +41,7 @@ const InstructorProfile = () => {
           <div className="bg-white rounded-2xl p-6 shadow">
             <div className="mb-6">
               <div className="w-36 h-36 rounded-full  mb-5 mx-auto overflow-hidden">
-                <img
+                <Image
                   src="https://avatars.githubusercontent.com/u/3633137?v=4"
                   alt=""
                   className="w-full h-full object-cover rounded"
@@ -118,12 +119,6 @@ const InstructorProfile = () => {
                           </div>
                         </div>
 
-                        {/*<CourseProgress
-                          size="sm"
-                          value={80}
-                          variant={110 === 100 ? "success" : ""}
-                />*/}
-
                         <div className="flex items-center justify-between mt-4">
                           <p className="text-md md:text-sm font-medium text-slate-700">
                             {formatPrice(49)}
@@ -149,4 +144,5 @@ const InstructorProfile = () => {
     </section>
   );
 };
+
 export default InstructorProfile;

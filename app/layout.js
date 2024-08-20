@@ -12,13 +12,12 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const conn  = await dbConnect();
+  const conn = await dbConnect();
   return (
     <html lang="en">
-      <body
-        className={cn(inter.className, poppins.className)}>
-          {children}
-          <Toaster richColors position="top-center"/>
+      <body className={cn(inter.className, poppins.className)}>
+        {children}
+        <Toaster richColors position="top-center" />
       </body>
     </html>
   );

@@ -40,7 +40,7 @@ export const TitleForm = ({ initialData = {}, quizSetId }) => {
 
   const onSubmit = async (values) => {
     try {
-      await updateQuizSet(quizSetId, values)
+      await updateQuizSet(quizSetId, values);
       toggleEdit();
       router.refresh();
     } catch (error) {
