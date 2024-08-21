@@ -2,9 +2,7 @@ import { Presentation } from "lucide-react";
 import { UsersRound } from "lucide-react";
 import { MessageSquare } from "lucide-react";
 import { Star } from "lucide-react";
-
 import { getCourseDetailsByInstructor } from "@/queries/courses";
-
 import Image from "next/image";
 
 const CourseInstructor = async ({ course }) => {
@@ -14,8 +12,6 @@ const CourseInstructor = async ({ course }) => {
   const courseDetailsByInstructor = await getCourseDetailsByInstructor(
     instructor._id.toString()
   );
-
-  console.log(courseDetailsByInstructor);
 
   return (
     <div className="bg-gray-50 rounded-md p-8">

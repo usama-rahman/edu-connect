@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import Menu from "./account-menu";
 
 import { auth } from "@/auth";
@@ -7,13 +6,12 @@ import { redirect } from "next/navigation";
 import { getUserByEmail } from "@/queries/users";
 
 const AccountSidebar = async () => {
-    const session = await auth();
-    if (!session?.user) {
-        redirect("/login");
-    }
+  const session = await auth();
+  if (!session?.user) {
+    redirect("/login");
+  }
 
-    const loggedInUser = await getUserByEmail(session?.user?.email);
-
+  const loggedInUser = await getUserByEmail(session?.user?.email);
 
   return (
     <div className="lg:w-1/4 md:px-3">
@@ -33,7 +31,7 @@ const AccountSidebar = async () => {
                   src={loggedInUser?.profilePicture}
                   className="rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800"
                   id="profile-banner"
-                  alt= {`${loggedInUser?.firstName} ${loggedInUser?.lastName}`}
+                  alt={`${loggedInUser?.firstName} ${loggedInUser?.lastName}`}
                   width={112}
                   height={112}
                 />

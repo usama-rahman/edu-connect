@@ -22,7 +22,7 @@ const ContactInfo = () => {
             <Input name="url" id="url" type="url" placeholder="Url :" />
           </div>
         </div>
-        {/*end grid*/}
+
         <Button className="mt-5" type="submit">
           Add
         </Button>

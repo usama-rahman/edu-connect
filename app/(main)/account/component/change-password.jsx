@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,31 +9,33 @@ import { toast } from "sonner";
 
 import { changePassword } from "@/app/actions/account";
 
-const ChangePassword = ({email}) => {
-
+const ChangePassword = ({ email }) => {
   const [passwordState, setPasswordState] = useState({
-    "oldPassword": "",
-    "newPassword": "",
-  })
+    oldPassword: "",
+    newPassword: "",
+  });
 
   function handleChange(event) {
     const key = event.target.name;
     const value = event.target.value;
 
-    setPasswordState({...passwordState, [key]: value});
+    setPasswordState({ ...passwordState, [key]: value });
   }
 
   async function doPassowrdChange(event) {
     event.preventDefault();
-    console.log(passwordState);
 
     try {
-      await changePassword(email, passwordState?.oldPassword, passwordState?.newPassword);
+      await changePassword(
+        email,
+        passwordState?.oldPassword,
+        passwordState?.newPassword
+      );
 
-      toast.success(`Password changed successfully.`)
+      toast.success(`Password changed successfully.`);
     } catch (err) {
       console.error(err);
-      toast.error(`Error: ${err.message}`)
+      toast.error(`Error: ${err.message}`);
     }
   }
 
@@ -44,11 +46,25 @@ const ChangePassword = ({email}) => {
         <div className="grid grid-cols-1 gap-5">
           <div>
             <Label className="mb-2 block">Old password :</Label>
-            <Input type="password" placeholder="Old password" id="oldPassword" name="oldPassword" onChange={handleChange} required />
+            <Input
+              type="password"
+              placeholder="Old password"
+              id="oldPassword"
+              name="oldPassword"
+              onChange={handleChange}
+              required
+            />
           </div>
           <div>
             <Label className="mb-2 block">New password :</Label>
-            <Input type="password" placeholder="New password" id="newPassword" name="newPassword" onChange={handleChange} required />
+            <Input
+              type="password"
+              placeholder="New password"
+              id="newPassword"
+              name="newPassword"
+              onChange={handleChange}
+              required
+            />
           </div>
           <div>
             <Label className="mb-2 block">Re-type New password :</Label>
@@ -59,7 +75,7 @@ const ChangePassword = ({email}) => {
             />
           </div>
         </div>
-        {/*end grid*/}
+
         <Button className="mt-5 cursor-pointer" type="submit">
           Save password
         </Button>

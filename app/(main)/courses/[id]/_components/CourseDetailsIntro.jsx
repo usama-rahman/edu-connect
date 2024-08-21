@@ -2,14 +2,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
-
 import { EnrollCourse } from "@/components/enroll-course";
-
 import { hasEnrollmentForCourse } from "@/queries/enrollments";
 import { getUserByEmail } from "@/queries/users";
 import { auth } from "@/auth";
-
-import { redirect } from "next/navigation";
 
 const CourseDetailsIntro = async ({ course }) => {
   const session = await auth();
@@ -20,8 +16,6 @@ const CourseDetailsIntro = async ({ course }) => {
     course?.id,
     loggedInUser?.id
   );
-
-  console.log({ hasEnrollment });
 
   return (
     <div className="overflow-x-hidden  grainy">

@@ -1,13 +1,10 @@
 import { CourseProgress } from "@/components/course-progress";
-import Link from "next/link";
-
 import { GiveReview } from "./give-review";
 import { DownloadCertificate } from "./download-certificate";
 import { SidebarModules } from "./sidebar-modules";
 import { getCourseDetails } from "@/queries/courses";
 import { getLoggedInUser } from "@/lib/loggedin-user";
 import { Watch } from "@/model/watch-model";
-
 import { getAReport } from "@/queries/reports";
 import { Quiz } from "./quiz";
 
