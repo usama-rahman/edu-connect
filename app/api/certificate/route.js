@@ -1,10 +1,8 @@
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import fontkit from "@pdf-lib/fontkit";
-
 import { getCourseDetails } from "@/queries/courses";
 import { getLoggedInUser } from "@/lib/loggedin-user";
 import { getAReport } from "@/queries/reports";
-
 import { formatMyDate } from "@/lib/date";
 
 // Fetch custom fonts
@@ -12,30 +10,16 @@ const kalamFontUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/fonts/kalam/Kalam-Regu
 const kalamFontBytes = await fetch(kalamFontUrl).then((res) =>
   res.arrayBuffer()
 );
-console.log({
-  env: process.env.NEXT_PUBLIC_BASE_URL,
-});
-console.log({
-  kalamFontUrl,
-  kalamFontBytes,
-});
 
 const montserratItalicFontUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/fonts/montserrat/Montserrat-Italic.ttf`;
 const montserratItalicFontBytes = await fetch(montserratItalicFontUrl).then(
   (res) => res.arrayBuffer()
 );
-console.log({
-  montserratItalicFontUrl,
-  montserratItalicFontBytes,
-});
+
 const montserratFontUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/fonts/montserrat/Montserrat-Medium.ttf`;
 const montserratFontBytes = await fetch(montserratFontUrl).then((res) =>
   res.arrayBuffer()
 );
-console.log({
-  montserratFontUrl,
-  montserratFontBytes,
-});
 
 export async function GET(request) {
   try {
@@ -67,8 +51,6 @@ export async function GET(request) {
       instructorDesignation: `${course?.instructor?.designation}`,
       sign: "/sign.png",
     };
-
-    console.log(completionInfo);
 
     const pdfDoc = await PDFDocument.create();
     pdfDoc.registerFontkit(fontkit);

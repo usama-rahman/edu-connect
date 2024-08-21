@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,9 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
 import { ceredntialLogin } from "@/app/actions";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -73,13 +70,13 @@ export function LoginForm() {
           </div>
         </form>
         <div className="mt-4 text-center text-sm">
-          Don&apos;t have an account?{" "}
+          Don&apos;t have an account?
           <p>
-            Register as{" "}
+            Register as
             <Link href="/register/instructor" className="underline">
               Instructor
-            </Link>{" "}
-            or{" "}
+            </Link>
+            or
             <Link href="/register/student" className="underline">
               Student
             </Link>

@@ -1,6 +1,5 @@
 "use client";
 
-import { Logo } from "@/components/logo";
 import { MobileSidebar } from "./mobile-sidebar";
 import {
   DropdownMenu,
@@ -8,16 +7,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
-
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { signOut } from "next-auth/react";
 
 export const Navbar = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
-  useEffect(() =>{
+  useEffect(() => {
     async function fetchMe() {
       try {
         const response = await fetch(`/api/me`);
@@ -38,10 +37,7 @@ export const Navbar = () => {
           <DropdownMenuTrigger asChild>
             <div className="cursor-pointer">
               <Avatar>
-                <AvatarImage
-                  src={loggedInUser?.profilePicture}
-                  alt="@shadcn"
-                />
+                <AvatarImage src={loggedInUser?.profilePicture} alt="@shadcn" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </div>
@@ -53,7 +49,9 @@ export const Navbar = () => {
                 onClick={() => {
                   signOut();
                 }}
-                >Logout</Link>
+              >
+                Logout
+              </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

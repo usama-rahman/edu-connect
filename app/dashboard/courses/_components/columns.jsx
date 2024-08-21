@@ -73,7 +73,7 @@ export const columns = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const id  = row.original._id;
+      const id = row.original._id;
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

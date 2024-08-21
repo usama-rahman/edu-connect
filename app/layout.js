@@ -12,7 +12,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const conn = await dbConnect();
+  await dbConnect();
   return (
     <html lang="en">
       <body className={cn(inter.className, poppins.className)}>

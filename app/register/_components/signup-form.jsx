@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,7 +11,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
 import { useRouter } from "next/navigation";
 
 export function SignupForm({ role }) {
@@ -48,7 +46,7 @@ export function SignupForm({ role }) {
 
       response.status === 201 && router.push("/login");
     } catch (e) {
-      console.log(e.message);
+      console.error(e.message);
     }
   }
 
