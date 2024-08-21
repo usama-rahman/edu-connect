@@ -89,6 +89,7 @@ const FilterCourseMobile = () => {
       }));
     }
   };
+
   return (
     <div className="lg:hidden">
       <Sheet>

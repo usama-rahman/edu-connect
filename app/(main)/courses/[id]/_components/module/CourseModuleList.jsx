@@ -22,7 +22,6 @@ const CourseModuleList = ({ module }) => {
             {(totalDuration / 3660).toPrecision(2)} Hours
           </span>
         </div>
-        {/* header ends */}
 
         <div className="space-y-3">
           {module?.lessonIds &&

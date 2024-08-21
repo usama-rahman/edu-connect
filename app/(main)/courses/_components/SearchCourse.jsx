@@ -10,7 +10,7 @@ const SearchCourse = () => {
       <Input
         type="text"
         placeholder="Search courses..."
-        className="pl-8 pr-3 py-2 text-sm" // Add additional styling as needed
+        className="pl-8 pr-3 py-2 text-sm"
       />
     </div>
   );
