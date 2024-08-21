@@ -1,12 +1,9 @@
+import Image from "next/image";
 import { CourseProgress } from "@/components/course-progress";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen } from "lucide-react";
-import Image from "next/image";
-
 import { getCategoryDetails } from "@/queries/categories";
-
 import { getAReport } from "@/queries/reports";
-
 import { getCourseDetails } from "@/queries/courses";
 
 const EnrolledCourseCard = async ({ enrollment }) => {
@@ -89,7 +86,7 @@ const EnrolledCourseCard = async ({ enrollment }) => {
               Total Modules: {enrollment?.course?.modules?.length}
             </p>
             <p className="text-md md:text-sm font-medium text-slate-700">
-              Completed Modules{" "}
+              Completed Modules
               <Badge variant="success">{totalCompletedModules}</Badge>
             </p>
           </div>

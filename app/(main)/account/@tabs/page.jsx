@@ -1,7 +1,6 @@
 import PersonalDetails from "../component/personal-details";
 import ContactInfo from "../component/contact-info";
 import ChangePassword from "../component/change-password";
-
 import { auth } from "@/auth";
 import { getUserByEmail } from "@/queries/users";
 

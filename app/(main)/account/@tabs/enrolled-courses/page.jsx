@@ -1,10 +1,7 @@
 import { getEnrollmentsForUser } from "@/queries/enrollments";
 import { auth } from "@/auth";
-
 import { redirect } from "next/navigation";
-
 import { getUserByEmail } from "@/queries/users";
-
 import EnrolledCourseCard from "../../component/enrolled-coursecard";
 import Link from "next/link";
 
