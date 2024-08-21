@@ -22,7 +22,6 @@ function QuizModal({ courseId, quizSetId, quizzes, open, setOpen }) {
     const nextQuizIndex = quizIndex + 1;
     const prevQuizIndex = quizIndex - 1;
     if (type === "next" && nextQuizIndex <= lastQuizIndex) {
-      console.log("next");
       return setQuizIndex((prev) => prev + 1);
     }
     if (type === "prev" && prevQuizIndex >= 0) {

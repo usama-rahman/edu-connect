@@ -47,7 +47,6 @@ export const ModulesForm = ({ initialData, courseId }) => {
 
   const onSubmit = async (values) => {
     try {
-
       const formData = new FormData();
       formData.append("title", values?.title);
       formData.append("slug", getSlug(values?.title));
@@ -72,9 +71,7 @@ export const ModulesForm = ({ initialData, courseId }) => {
   };
 
   const onReorder = async (updateData) => {
-    console.log({ updateData });
     try {
-
       reOrderModules(updateData);
       setIsUpdating(true);
 

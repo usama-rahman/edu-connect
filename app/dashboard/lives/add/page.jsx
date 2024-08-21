@@ -80,7 +80,6 @@ const AddLive = () => {
     } catch (error) {
       toast.error("Something went wrong");
     }
-    console.log(values);
   };
   return (
     <section className="py-8">

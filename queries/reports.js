@@ -20,7 +20,6 @@ export async function getAReport(filter) {
 }
 
 export async function createAssessmentReport(data) {
-  console.log(data);
   try {
     let report = await Report.findOne({
       course: data.courseId,
@@ -87,17 +86,14 @@ export async function createWatchReport(data) {
     // Check if the course has completed
     // If so, add the completion time.
     const course = await getCourseDetails(data.courseId);
-    console.log(course);
+
     const modulesInCourse = course?.modules;
     const moduleCount = modulesInCourse?.length ?? 0;
 
     const completedModule = report.totalCompletedModeules;
     const completedModuleCount = completedModule?.length ?? 0;
 
-    console.log(moduleCount, completedModuleCount);
-
     if (completedModuleCount >= 1 && completedModuleCount === moduleCount) {
-      console.log("Course completed");
       report.completion_date = Date.now();
     }
 

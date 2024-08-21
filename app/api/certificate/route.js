@@ -37,11 +37,10 @@ export async function GET(request) {
       course: courseId,
       student: loggedInUser.id,
     });
-    console.log(report?.completion_date);
+
     const completionDate = report?.completion_date
       ? formatMyDate(report?.completion_date)
       : formatMyDate(Date.now());
-    console.log(completionDate);
 
     const completionInfo = {
       name: `${loggedInUser?.firstName} ${loggedInUser?.lastName}`,
@@ -235,6 +234,6 @@ export async function GET(request) {
       headers: { "content-type": "application/pdf" },
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }

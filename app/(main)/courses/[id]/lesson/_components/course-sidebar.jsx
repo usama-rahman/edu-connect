@@ -39,7 +39,6 @@ export const CourseSidebar = async ({ courseId }) => {
             user: loggedinUser.id,
           }).lean();
           if (watch?.state === "completed") {
-            console.log(`This lesson ${lesson.title} has completed`);
             lesson.state = "completed";
           }
           return lesson;

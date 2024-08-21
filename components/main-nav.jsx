@@ -37,9 +37,7 @@ export function MainNav({ items, children }) {
         const response = await fetch("/api/me");
         const data = await response.json();
         setLoggedInUser(data);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     }
     fetchMe();
   }, [session]);

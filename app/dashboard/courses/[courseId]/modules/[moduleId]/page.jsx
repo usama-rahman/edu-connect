@@ -15,20 +15,21 @@ import { ModuleActions } from "./_components/module-action";
 import { getModule } from "@/queries/modules";
 import { replaceMongoIdInArray } from "@/lib/convertData";
 
-const Module = async ({ params: {courseId, moduleId} }) => {
+const Module = async ({ params: { courseId, moduleId } }) => {
   const module = await getModule(moduleId);
-  console.log(module);
 
-  const lessons = replaceMongoIdInArray(module.lessonIds).sort((a, b ) => a.order - b.order);
-
-  console.log(lessons);
+  const lessons = replaceMongoIdInArray(module.lessonIds).sort(
+    (a, b) => a.order - b.order
+  );
 
   return (
     <>
-      {!module?.active && (<AlertBanner
-        label="This module is unpublished. It will not be visible in the course."
-        variant="warning"
-      />)}
+      {!module?.active && (
+        <AlertBanner
+          label="This module is unpublished. It will not be visible in the course."
+          variant="warning"
+        />
+      )}
 
       <div className="p-6">
         <div className="flex items-center justify-between">
@@ -52,14 +53,22 @@ const Module = async ({ params: {courseId, moduleId} }) => {
                 <IconBadge icon={LayoutDashboard} />
                 <h2 className="text-xl">Customize Your module</h2>
               </div>
-              <ModuleTitleForm initialData={{title: module.title}} courseId={courseId} chapterId={moduleId} />
+              <ModuleTitleForm
+                initialData={{ title: module.title }}
+                courseId={courseId}
+                chapterId={moduleId}
+              />
             </div>
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge icon={BookOpenCheck} />
                 <h2 className="text-xl">Module Lessons</h2>
               </div>
-              <LessonForm initialData={lessons} moduleId={moduleId} courseId={courseId}/>
+              <LessonForm
+                initialData={lessons}
+                moduleId={moduleId}
+                courseId={courseId}
+              />
             </div>
           </div>
           <div>

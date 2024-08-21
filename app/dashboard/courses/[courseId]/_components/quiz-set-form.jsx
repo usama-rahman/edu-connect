@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
 import { Button } from "@/components/ui/button";
 import { Combobox } from "@/components/ui/combobox";
 import {
@@ -24,14 +23,10 @@ const formSchema = z.object({
   quizSetId: z.string().min(1),
 });
 
-export const QuizSetForm = ({
-  initialData,
-  courseId,
-  options
-}) => {
+export const QuizSetForm = ({ initialData, courseId, options }) => {
   const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
-  const foundMatch = options.find(o => o.value === initialData.quizSetId);
+  const foundMatch = options.find((o) => o.value === initialData.quizSetId);
 
   const toggleEdit = () => setIsEditing((current) => !current);
 
@@ -46,7 +41,6 @@ export const QuizSetForm = ({
 
   const onSubmit = async (values) => {
     try {
-      console.log(values);
       await updateQuizSetForCourse(courseId, values);
       toast.success("Course updated");
       toggleEdit();
@@ -78,10 +72,13 @@ export const QuizSetForm = ({
             !initialData.quizSetId && "text-slate-500 italic"
           )}
         >
-          {foundMatch ? <span>{foundMatch.label}</span> : <span>"No quiz set selected"</span>}
+          {foundMatch ? (
+            <span>{foundMatch.label}</span>
+          ) : (
+            <span>No quiz set selected</span>
+          )}
         </p>
       )}
-      {console.log({ options })}
       {isEditing && (
         <Form {...form}>
           <form

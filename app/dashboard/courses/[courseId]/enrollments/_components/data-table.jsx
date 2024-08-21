@@ -44,7 +44,6 @@ export function DataTable({ columns, data }) {
     },
   });
 
-  console.log(table.getColumn("name"));
   return (
     <div>
       <div className="flex items-center justify-between py-4">

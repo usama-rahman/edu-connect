@@ -12,10 +12,7 @@ export async function createLesson(data) {
     const moduleId = data.get("moduleId");
     const order = data.get("order");
 
-    console.log(title, slug, moduleId, order);
-
     const createdLesson = await create({ title, slug, order });
-    console.log(createdLesson);
 
     const module = await Module.findById(moduleId);
     module.lessonIds.push(createdLesson._id);
@@ -40,7 +37,6 @@ export async function reOrderLesson(data) {
 }
 
 export async function updateLesson(lessonId, data) {
-  console.log("**** updateLesson", lessonId, data);
   try {
     await Lesson.findByIdAndUpdate(lessonId, data);
   } catch (err) {
@@ -49,7 +45,6 @@ export async function updateLesson(lessonId, data) {
 }
 
 export async function changeLessonPublishState(lessonId) {
-  console.log("changeLessonPublishState", lessonId);
   const lesson = await Lesson.findById(lessonId);
   try {
     const res = await Lesson.findByIdAndUpdate(

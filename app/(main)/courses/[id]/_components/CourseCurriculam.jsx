@@ -14,8 +14,6 @@ const CourseCurriculam = ({ course }) => {
       return acc + obj;
     }, 0);
 
-  console.log({ totalDuration });
-
   return (
     <>
       <div class="flex gap-x-5 items-center justify-center flex-wrap mt-4 mb-6 text-gray-600 text-sm">

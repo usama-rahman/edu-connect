@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -36,7 +35,7 @@ export const VideoUrlForm = ({ initialData, courseId, lessonId }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [state, setState] = useState({
     url: initialData?.url,
-    duration: formatDuration(initialData?.duration)
+    duration: formatDuration(initialData?.duration),
   });
   const toggleEdit = () => setIsEditing((current) => !current);
 
@@ -48,17 +47,17 @@ export const VideoUrlForm = ({ initialData, courseId, lessonId }) => {
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values) => {
-    console.log(values);
     try {
       const payload = {};
       payload["video_url"] = values?.url;
-      console.log(payload);
+
       const duration = values?.duration;
       const splitted = duration.split(":");
-      console.log(splitted)
+
       if (splitted.length === 3) {
-        payload["duration"] = splitted[0] * 3600 + splitted[1] * 60 + splitted[2] * 1;
-        console.log(lessonId, payload);
+        payload["duration"] =
+          splitted[0] * 3600 + splitted[1] * 60 + splitted[2] * 1;
+
         await updateLesson(lessonId, payload);
         toast.success("Lesson updated");
         toggleEdit();
@@ -88,9 +87,7 @@ export const VideoUrlForm = ({ initialData, courseId, lessonId }) => {
       </div>
       {!isEditing && (
         <>
-          <p className="text-sm mt-2">
-            {state?.url}
-          </p>
+          <p className="text-sm mt-2">{state?.url}</p>
           <div className="mt-6">
             <VideoPlayer url={state?.url} />
           </div>

@@ -61,7 +61,6 @@ export const LessonForm = ({ initialData, moduleId, courseId }) => {
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values) => {
-    console.log(values);
     try {
       const formData = new FormData();
 
@@ -88,7 +87,6 @@ export const LessonForm = ({ initialData, moduleId, courseId }) => {
   };
 
   const onReorder = async (updateData) => {
-    console.log({ updateData });
     try {
       setIsUpdating(true);
       await reOrderLesson(updateData);
@@ -102,7 +100,7 @@ export const LessonForm = ({ initialData, moduleId, courseId }) => {
   };
 
   const onEdit = (id) => {
-    const foundLesson = lessons.find(lesson => lesson.id === id);
+    const foundLesson = lessons.find((lesson) => lesson.id === id);
     setLessonToEdit(foundLesson);
     setIsEditing(true);
   };
@@ -176,9 +174,16 @@ export const LessonForm = ({ initialData, moduleId, courseId }) => {
           Drag & Drop to reorder the lessons
         </p>
       )}
-      <LessonModal open={isEditing} setOpen={setIsEditing} courseId={courseId} moduleId={moduleId} lesson={lessonToEdit} onclose={() => {
-        window.location.reload();
-      }}/>
+      <LessonModal
+        open={isEditing}
+        setOpen={setIsEditing}
+        courseId={courseId}
+        moduleId={moduleId}
+        lesson={lessonToEdit}
+        onclose={() => {
+          window.location.reload();
+        }}
+      />
     </div>
   );
 };

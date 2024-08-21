@@ -37,7 +37,6 @@ export const ModuleTitleForm = ({ initialData, courseId, chapterId }) => {
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values) => {
-    console.log(values);
     try {
       values["slug"] = getSlug(values.title);
       await updateModule(chapterId, values);

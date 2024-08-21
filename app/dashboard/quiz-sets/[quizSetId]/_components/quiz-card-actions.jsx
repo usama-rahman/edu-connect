@@ -16,7 +16,6 @@ export const QuizCardActions = ({ quiz, quizSetId }) => {
     try {
       switch (action) {
         case "edit-quiz": {
-          console.log(quiz.id, quizSetId);
           break;
         }
         case "delete-quiz": {

@@ -50,7 +50,6 @@ export async function updateModule(moduleId, data) {
 }
 
 export async function changeModulePublishState(moduleId) {
-  console.log("changeModulePublishState", moduleId);
   const module = await Module.findById(moduleId);
   try {
     const res = await Module.findByIdAndUpdate(

@@ -24,11 +24,7 @@ const formSchema = z.object({
   value: z.string().min(1),
 });
 
-export const CategoryForm = ({
-  initialData,
-  courseId,
-  options
-}) => {
+export const CategoryForm = ({ initialData, courseId, options }) => {
   const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
 
@@ -45,9 +41,10 @@ export const CategoryForm = ({
 
   const onSubmit = async (values) => {
     try {
-      console.log(values);
-      const selectedCategory = options.find(option => option.value === values.value);
-      await updateCourse(courseId, {"category": selectedCategory.id})
+      const selectedCategory = options.find(
+        (option) => option.value === values.value
+      );
+      await updateCourse(courseId, { category: selectedCategory.id });
       toast.success("Course updated");
       toggleEdit();
       router.refresh();
@@ -85,7 +82,6 @@ export const CategoryForm = ({
           {selectedOptions?.label || "No category"}
         </p>
       )}
-      {console.log({ options })}
       {isEditing && (
         <Form {...form}>
           <form
