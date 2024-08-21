@@ -1,10 +1,11 @@
-import Image from "next/image";
 import { CourseProgress } from "@/components/course-progress";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen } from "lucide-react";
 import { getCategoryDetails } from "@/queries/categories";
 import { getAReport } from "@/queries/reports";
 import { getCourseDetails } from "@/queries/courses";
+import ThumbnailImage from "./nested/thumbnailImage";
+import TotalMarks from "./nested/TotalMarks";
 
 const EnrolledCourseCard = async ({ enrollment }) => {
   const courseCategory = await getCategoryDetails(
@@ -59,14 +60,7 @@ const EnrolledCourseCard = async ({ enrollment }) => {
 
   return (
     <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
-      <div className="relative w-full aspect-video rounded-md overflow-hidden">
-        <Image
-          src={`/assets/images/courses/${enrollment?.course?.thumbnail}`}
-          alt={enrollment?.course?.title}
-          className="object-cover"
-          fill
-        />
-      </div>
+      <ThumbnailImage enrollment={enrollment} />
       <div className="flex flex-col pt-2">
         <div className="text-lg md:text-base font-medium group-hover:text-sky-700 line-clamp-2">
           {enrollment?.course?.title}
@@ -118,15 +112,8 @@ const EnrolledCourseCard = async ({ enrollment }) => {
             </p>
           </div>
         </div>
-        <div className="flex items-center justify-between mb-4">
-          <p className="text-md md:text-sm font-medium text-slate-700">
-            Total Marks
-          </p>
 
-          <p className="text-md md:text-sm font-medium text-slate-700">
-            {totalMarks}
-          </p>
-        </div>
+        <TotalMarks totalMarks={totalMarks} />
 
         <CourseProgress
           size="sm"
